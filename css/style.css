@@ -82,17 +82,21 @@ NAME OF GAME
 }*/
 
 .tile-content {
-font-size: 2em;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-visibility: hidden;
-font-family: 'little-things' 'Orbitron';
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  visibility: hidden;
+  font-family: 'little-things' 'Orbitron';
+  opacity: 0;
+  transform: translate(-50%, -50%) perspective(400px) rotate3d(0, 1, 1, 90deg);
+  transition: all 0.25s;
 }
 
 .click:checked + .tile-content{
   visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) perspective(400px) rotate3d(0, 1, 1, 0);
 }
 
 .click {
@@ -107,6 +111,15 @@ font-family: 'little-things' 'Orbitron';
 }
 
 .tile:hover {
+
+}
+
+
+@media (max-width: 600px) {
+
+  .tile {
+    width: 25%;
+  }
 
 }
 
